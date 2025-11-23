@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portafolio - Maqueta Simple</title>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="site-header">
+			<div class="container header-inner">
+				<div class="brand">Alinette Galdames</div>
+			</div>
+		</header>
+
+		<!-- Hero -->
+		<section class="hero container">
+			<div class="hero-content">
+				<h1 class="title">Portafolio <span class="accent">profesional</span></h1>
+				<p class="subtitle">Estudiante de Diseño, enfocada en crear soluciones visuales claras, modernas y estéticas.</p>
+				<div class="hero-cta">
+					<button class="btn-primary">Ver proyectos destacados</button>
+					<a class="btn-ghost" href="CV/Curriculum vitae Alinette Galdames.pdf" download="Curriculum vitae Alinette Galdames.pdf">Descargar cv</a>
+				</div>
+
+				<div class="intro">
+					<h3>Mi enfoque</h3>
+					<p>Soy diseñadora visual y digital, con un estilo minimalista y futurista. Me gusta crear proyectos claros, estéticos y bien estructurados, desde packaging hasta animación y fotografía.</p>
+				</div>
+			</div>
+
+			<div class="hero-art">
+				<div class="sparkles" aria-hidden="true">
+					<svg width="140" height="140" viewBox="0 0 100 100" fill="none">
+						<g fill="#fff" opacity="0.95">
+							<path d="M50 5 L55 28 L78 33 L55 38 L50 61 L45 38 L22 33 L45 28Z" fill="#fff" opacity="0.12" />
+						</g>
+					</svg>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects -->
+		<section class="projects container">
+			<div class="projects-header">
+				<h2>PROYECTOS</h2>
+				<div class="filters" role="tablist">
+					<button class="filter" data-filter="Editorial">Editorial</button>
+					<button class="filter active packaging" data-filter="Packaging">Packaging</button>
+					<button class="filter" data-filter="Ilustración">Ilustración</button>
+					<button class="filter" data-filter="Fotografía">Fotografía</button>
+				</div>
+			</div>
+
+			<!-- Loading placeholder (script.js toggles visibility) -->
+			<div id="projects-loading" class="projects-loading" style="display:none">
+				<p>Cargando proyectos...</p>
+			</div>
+
+			<div id="projects-grid" class="projects-grid">
+				<!-- Project cards will be rendered here by script.js -->
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="site-footer">
+			<div class="container">
+				<p>© 2025 Alinette Galdames — Diseño &amp; Experiencias</p>
+			</div>
+		</footer>
+
+		<!-- App script (handles filters and rendering) -->
+		<!-- Modal (hidden until opened) -->
+		<div id="modal" aria-hidden="true">
+			<div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+				<button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+				<div class="modal-media">
+					<img id="modal-image" src="" alt="Proyecto" />
+				</div>
+				<div class="modal-body">
+					<h3 id="modal-title" class="modal-title">Título del proyecto</h3>
+					<div id="modal-date" class="modal-date">Fecha</div>
+					<div id="modal-desc" class="modal-desc">Descripción del proyecto...</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
