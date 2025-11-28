@@ -36,7 +36,7 @@ export default function Proyectos({ proyectos, onSeleccionar }) {
         
         {/* Botones de filtro por categoría */}
         <div className="filters" role="tablist">
-          {['Todos', ...CATEGORIAS].map(categoria => (
+          {CATEGORIAS.map(categoria => (
             <button
               key={categoria}
               onClick={() => setFiltroActual(categoria)}

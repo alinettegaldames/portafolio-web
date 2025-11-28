@@ -1,15 +1,11 @@
 /*
-  TarjetaProyecto.js
-  Componente pequeño para cada tarjeta de proyecto en la grilla.
-  Se usa dentro de la sección Proyectos.
+  Este componente se usa para cada tarjeta de proyecto en la grilla. Se usa dentro de la sección Proyectos para ordenarlo.
 */
 
 import React from 'react';
 
 export default function TarjetaProyecto({ proyecto, onAbrirModal }) {
-  const thumb = (proyecto.imagenes && proyecto.imagenes.length > 0)
-    ? proyecto.imagenes[0]
-    : proyecto.imagen;
+  const thumb = proyecto.imagen;
 
   return (
     <article 
@@ -26,7 +22,7 @@ export default function TarjetaProyecto({ proyecto, onAbrirModal }) {
       <div
         className="thumb"
         style={{
-          backgroundImage: `url(${thumb})`,
+          backgroundImage: `url("${encodeURI(thumb)}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -34,7 +30,7 @@ export default function TarjetaProyecto({ proyecto, onAbrirModal }) {
       />
       <div className="card-info">
         <span className="tag">{proyecto.category}</span>
-        <strong>{proyecto.title}</strong>
+        <strong>{proyecto.previewTitle || proyecto.title}</strong>
         <div className="label-bar" />
       </div>
     </article>

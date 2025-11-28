@@ -91,7 +91,7 @@ export default function Modal({ proyecto, onCerrar }) {
               </button>
 
               <img
-                src={imagenes[index]}
+                src={encodeURI(imagenes[index])}
                 alt={`${proyecto.title} (${index + 1} / ${imagenes.length})`}
                 onError={(e) => {
                   e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23ddd" width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23666" font-size="18"%3EImagen no disponible%3C/text%3E%3C/svg%3E';
@@ -128,9 +128,15 @@ export default function Modal({ proyecto, onCerrar }) {
         {/* Lado derecho: detalles del proyecto */}
         <div className="modal-right">
           <h2>{proyecto.title}</h2>
-          <p className="muted">{proyecto.date}</p>
+          {proyecto.subtitle && (
+            <h3 className="modal-subtitle">{proyecto.subtitle}</h3>
+          )}
           <div className="modal-desc-wrapper">
-            <div className="modal-desc" dangerouslySetInnerHTML={{ __html: proyecto.descripcion.replace(/\n/g, '<br/>') }} />
+            <div className="modal-desc">
+              {proyecto.descripcion && proyecto.descripcion.split(/\n\s*\n/).map((p, idx) => (
+                <p key={idx}>{p}</p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
